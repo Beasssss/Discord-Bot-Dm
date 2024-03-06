@@ -23,9 +23,13 @@ This project is a Discord bot created using Python and the discord.py library. T
 2. Edit the config.json file to suit your servers needs.
 
 
-3. Run the bot with the following command:
+3. Open the directory where the "bot.py" and "config.js" is and type "cmd" to open the command prompt in that
+specific directory.
 
- `python bot.py`
+
+4. Run the bot with the following command in cmd prompt:
+
+ `python bot.py` 
 
 
 
