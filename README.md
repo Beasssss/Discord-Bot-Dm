@@ -2,6 +2,7 @@
 
 ## Overview
 This project is a Discord bot created using Python and the discord.py library. The bot is designed to perform various tasks such as sending custom embedded messages, setting custom status, and sending links via buttons.
+- This is my first ever release so please let me know any additions etc. you would like to see!
 
 ## Features
 - Set custom status: Change the bot's status to display a custom message.
