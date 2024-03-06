@@ -1,18 +1,21 @@
 {
-    "bot_token": "YOUR_BOT_TOKEN_HERE",
-    "custom_status": {
-      "type": "playing",
-      "text": "Hello, I'm a bot!"
-    },
-    "embed_settings": {
-      "title": "Custom Title",
-      "color": "GREEN",
-      "footer_text": "Custom Footer",
-      "thumbnail_url": "https://example.com/image.jpg"
-    },
-    "button1_label": "Button 1",
-    "button1_url": "https://example.com",
-    "button2_label": "Button 2",
-    "button2_url": "https://example.com"
-  }
-  
+  "bot_token": "YOUR_BOT_TOKEN_HERE",
+  "custom_status": {
+    "type": "playing",
+    "text": "Hello, World!"
+  },
+  "embed_settings": {
+    "title": "Custom Title",
+    "color": "BLUE",
+    "footer_text": "Custom Footer",
+    "thumbnail_url": "https://example.com/thumbnail.png"
+  },
+  "button1_label": "Button 1",
+  "button1_url": "https://example.com/button1",
+  "button2_label": "Button 2",
+  "button2_url": "https://example.com/button2",
+  "allowed_roles": [
+    123456789012345678,
+    987654321098765432
+  ]
+}
