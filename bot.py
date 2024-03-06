@@ -6,7 +6,7 @@ from discord_slash.utils.manage_components import create_actionrow, create_butto
 from discord_slash.model import ButtonStyle
 import json
 
-# Load config from config.json
+
 def load_config():
     with open('config.json', 'r') as f:
         return json.load(f)
@@ -14,7 +14,7 @@ def load_config():
 intents = discord.Intents.default()
 intents.messages = True
 bot = commands.Bot(command_prefix='!', intents=intents)
-slash = SlashCommand(bot, sync_commands=True)  # Create a new SlashCommand instance
+slash = SlashCommand(bot, sync_commands=True)
 
 from discord_slash import ComponentContext
 
