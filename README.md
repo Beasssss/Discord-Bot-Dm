@@ -5,9 +5,14 @@ This project is a Discord bot created using Python and the discord.py library. T
 - This is my first ever release so please let me know any additions etc. you would like to see!
 
 ## Features
-- Set custom status: Change the bot's status to display a custom message.
-- Send custom embedded messages: Send customized embedded messages to specific users or all users in the server.
-- Send links via buttons: Send links to users via interactive buttons.
+- Custom Status: Set the bot's custom status with various options like playing, listening, watching, or competing.
+- Send Custom Messages: Send custom embedded messages to a specific user or all users in the server.
+- Links: Set the bot's links to provide with customizable buttons.
+- Slash Commands Support: Interact with the bot using Slash Commands for a streamlined experience.
+- Configuration Management: Load bot configuration from a config.json file.
+- Role-based Command Access: Restrict command usage to users with specific roles for better control.
+- Presence Update: Automatically update the bot's presence based on the custom status.
+- Refresh Configuration: Optionally refresh the bot's configuration using a command. - Bit useless but its their :)
 
 ## Usage
 1. Install the required Python packages using the following command:
