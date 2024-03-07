@@ -6,21 +6,13 @@ from discord_slash.utils.manage_components import create_actionrow, create_butto
 from discord_slash.model import ButtonStyle
 import json
 
-
 def load_config():
-    try:
-        with open('config.json', 'r', encoding='utf-8') as f:
-            return json.load(f)
-    except FileNotFoundError:
-        print("Error: config.json not found.")
-        return {}
-    except json.JSONDecodeError:
-        print("Error: Unable to decode config.json.")
-        return {}
-
+    with open('config.json', 'r') as f:
+        return json.load(f)
 
 intents = discord.Intents.default()
 intents.messages = True
+intents.members = True
 bot = commands.Bot(command_prefix='!', intents=intents)
 slash = SlashCommand(bot, sync_commands=True)
 
@@ -105,7 +97,7 @@ async def send_dm(ctx: SlashContext, message: str, user: discord.User = None, dm
             members = ctx.guild.members
             await ctx.send(f"Sending message to {len(members)} members (excluding bots)...")
             for member in members:
-                if not member.bot:  # Skip bots
+                if not member.bot:
                     try:
                         await member.send(embed=embed)
                     except discord.Forbidden:
@@ -121,17 +113,21 @@ async def send_dm(ctx: SlashContext, message: str, user: discord.User = None, dm
         await ctx.send("You do not have permission to use this command.")
 
 @slash.slash(
-    name="refresh_config",
-    description="Refresh the bot's configuration.",
+    name="check_permissions",
+    description="Check bot's permissions to send messages to users.",
     guild_ids=[]
 )
-async def refresh_config(ctx: SlashContext):
+async def check_permissions(ctx: SlashContext):
     config = load_config()
-    if ctx.author.roles and any(role.id in config.get('allowed_roles', []) for role in ctx.author.roles):
-        # Logic to refresh the configuration
-        await ctx.send("Bot configuration refreshed.")
-    else:
-        await ctx.send("You do not have permission to use this command.")
+    allowed_roles = [f"<@&{role}>" for role in config.get('allowed_roles', [])]
+    bot_permissions = ctx.guild.me.guild_permissions
+
+    embed = discord.Embed(title="Bot Permissions Check", color=0x00ff00)
+    embed.add_field(name="Can send messages to all users:", value="✅" if bot_permissions.send_messages else "❌", inline=False)
+    embed.add_field(name="Can DM single users:", value="✅" if bot_permissions.send_messages else "❌", inline=False)
+    embed.add_field(name="Can @ the users with permission:", value=" ".join(allowed_roles) if allowed_roles else "None", inline=False)
+
+    await ctx.send(embed=embed)
 
 @bot.event
 async def on_component(ctx: ComponentContext):
@@ -156,7 +152,4 @@ async def rich_presence(ctx: SlashContext):
     action_row = create_actionrow(button1, button2)
     await ctx.send("Custom Rich Presence", components=[action_row])
 
-try:
-    bot.run(load_config()['bot_token'])
-except KeyError:
-    print("Error: bot_token not found in config.json. Please make sure it is correctly configured.")
+bot.run(load_config()['bot_token'])
