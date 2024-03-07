@@ -1,4 +1,4 @@
-# Discord Bot DM Project - Jude1304
+# NOT CURRENTLY WORKING! | Discord Bot DM Project - Jude1304
 
 ## Overview
 This project is a Discord bot created using Python and the discord.py library. The bot is designed to perform various tasks such as sending custom embedded messages, setting custom status, and sending links via buttons.
