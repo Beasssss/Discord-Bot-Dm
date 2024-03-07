@@ -44,5 +44,15 @@ specific directory.
 
 
 
+ ## Coming Soon...
+
+ - Debug Mode - Debug all actions in the console
+ - Webhook Logs - easliy track actions within your community
+ - More Embedded Layouts
+ - .exe version for easily running the bot
+ - Integrated Games - make the bot more fun for the community!
+
+
+
 
 ## For any questions or assistance, please contact Jude1304 on Discord.
