@@ -1,18 +1,29 @@
-# NOT CURRENTLY WORKING! | Discord Bot DM Project - Jude1304
+Discord Bot DM Project - Jude1304
 
 ## Overview
 This project is a Discord bot created using Python and the discord.py library. The bot is designed to perform various tasks such as sending custom embedded messages, setting custom status, and sending links via buttons.
 - This is my first ever release so please let me know any additions etc. you would like to see!
 
 ## Features
-- Custom Status: Set the bot's custom status with various options like playing, listening, watching, or competing.
-- Send Custom Messages: Send custom embedded messages to a specific user or all users in the server.
-- Links: Set the bot's links to provide with customizable buttons.
-- Slash Commands Support: Interact with the bot using Slash Commands for a streamlined experience.
-- Configuration Management: Load bot configuration from a config.json file.
-- Role-based Command Access: Restrict command usage to users with specific roles for better control.
-- Presence Update: Automatically update the bot's presence based on the custom status.
-- Refresh Configuration: Optionally refresh the bot's configuration using a command. - Bit useless but its their :)
+- Custom Status Setting: Users can set a custom status for the bot, specifying the type (playing, listening, watching, competing) and the text to display.
+
+- Send Direct Messages: Users can send custom embedded messages to a specific user or all users in the server. The bot also supports sending messages to multiple users simultaneously.
+
+- Check Bot Permissions: Users can check the bot's permissions to send messages to users. This includes checking if the bot can send messages to all users, DM single users, and mention users with specific permissions.
+
+- Rich Presence Status: Users can set the bot's rich presence status, enhancing its visibility and functionality within the server.
+
+- Configuration Management: The bot's configuration is stored in a config.json file, making it easy to manage and customize its behavior.
+
+- Role-based Permissions: Commands are restricted based on user roles specified in the configuration, ensuring that only users with the appropriate roles can use certain commands.
+
+- Slash Commands Support: The bot supports Discord slash commands, providing a more streamlined and intuitive command interface for users.
+
+- Button Interaction: Users can interact with buttons in the bot's messages, enabling more dynamic and interactive experiences within the server.
+
+- Customizable Embed Settings: Users can customize various aspects of embedded messages, such as title, description, color, footer text, and thumbnail URL.
+
+These features combine to create a versatile and powerful bot that enhances communication, engagement, and interaction within Discord servers.
 
 ## Usage
 1. Install the required Python packages using the following command:
