@@ -8,8 +8,16 @@ import json
 
 
 def load_config():
-    with open('config.json', 'r') as f:
-        return json.load(f)
+    try:
+        with open('config.json', 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        print("Error: config.json not found.")
+        return {}
+    except json.JSONDecodeError:
+        print("Error: Unable to decode config.json.")
+        return {}
+
 
 intents = discord.Intents.default()
 intents.messages = True
@@ -148,4 +156,7 @@ async def rich_presence(ctx: SlashContext):
     action_row = create_actionrow(button1, button2)
     await ctx.send("Custom Rich Presence", components=[action_row])
 
-bot.run(load_config()['bot_token'])
+try:
+    bot.run(load_config()['bot_token'])
+except KeyError:
+    print("Error: bot_token not found in config.json. Please make sure it is correctly configured.")
